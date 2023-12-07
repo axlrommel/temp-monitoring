@@ -19,11 +19,13 @@ const saveToDb = async (data: string) => {
     const date = new Date();
     const obj: IReading = JSON.parse(data);
 
-    await query(insertIntoReadings, [
-      obj.id,
-      obj.temp,
-      Math.floor(date.getTime() / 1000),
-    ]);
+    if (obj.temp > 0) {
+      await query(insertIntoReadings, [
+        obj.id,
+        obj.temp,
+        Math.floor(date.getTime() / 1000),
+      ]);
+    }
     console.log(data);
   } catch (e) {
     console.log(e);
