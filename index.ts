@@ -1,19 +1,26 @@
 import { SerialPort } from "serialport";
 import { ReadlineParser } from "@serialport/parser-readline";
 import express from "express";
-import { getRandomReadings } from "./src/getReadings";
+import { getReadings } from "./src/getReadings";
+import { query } from "./src/db";
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+const insertIntoReadings =
+  'INSERT INTO "temperatures".readings(device, temperature, timestamp) VALUES ($1, $2, $3)';
 
-const saveToDb = (data: any) => {
+const saveToDb = async (req: any, res: any) => {
   try {
-    const rightNow = new Date();
-    const obj = JSON.parse(data);
-    console.log(obj, rightNow);
+    const date = new Date();
+
+    await query(insertIntoReadings, [
+      "AB230RF",
+      24.56,
+      Math.floor(date.getTime() / 1000),
+    ]);
+    res.send({ status: "ok" });
   } catch (e) {
     console.log(e);
-    console.log(data);
   }
 };
 
@@ -27,7 +34,8 @@ const saveToDb = (data: any) => {
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.get("/readings", getRandomReadings);
+app.get("/readings", getReadings);
+app.post("/readings", saveToDb);
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
