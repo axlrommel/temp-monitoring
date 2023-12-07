@@ -1,7 +1,7 @@
 import { SerialPort } from "serialport";
 import { ReadlineParser } from "@serialport/parser-readline";
 import express from "express";
-import { getReadings } from "./src/getReadings";
+import { getRandomReadings } from "./src/getReadings";
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -27,7 +27,7 @@ const saveToDb = (data: any) => {
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.get("/readings", getReadings);
+app.get("/readings", getRandomReadings);
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
