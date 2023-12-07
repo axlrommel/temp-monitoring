@@ -9,14 +9,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.18.2",
     "ramda": "^0.29.1",
     "serialport": "^12.0.0",
     "ts-node": "^10.9.1"
   },
   "devDependencies": {
     "@monsantoit/eslint-config-street-ts": "^4.0.1",
-    "@types/ramda": "^0.29.7",
+    "@types/express": "^4.17.21",
     "@types/jest": "^29.5.7",
+    "@types/ramda": "^0.29.7",
     "@typescript-eslint/eslint-plugin": "^6.9.1",
     "@typescript-eslint/parser": "^6.9.1",
     "eslint": "^8.52.0",
