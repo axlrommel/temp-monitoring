@@ -1,0 +1,32 @@
+{
+  "name": "temp-monitoring",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ramda": "^0.29.1",
+    "serialport": "^12.0.0",
+    "ts-node": "^10.9.1"
+  },
+  "devDependencies": {
+    "@monsantoit/eslint-config-street-ts": "^4.0.1",
+    "@types/ramda": "^0.29.7",
+    "@types/jest": "^29.5.7",
+    "@typescript-eslint/eslint-plugin": "^6.9.1",
+    "@typescript-eslint/parser": "^6.9.1",
+    "eslint": "^8.52.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-no-only-tests": "^3.1.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "jest": "^29.7.0",
+    "prettier": "^3.0.3",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.2.2"
+  }
+}
