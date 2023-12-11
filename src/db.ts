@@ -1,10 +1,10 @@
 import { Pool } from "pg";
 
 const pool = new Pool({
-  user: "bytevlsm",
-  host: "lallah.db.elephantsql.com",
-  database: "bytevlsm",
-  password: "sStCaVzDLcap-ar-Fg2S4CErmfufb843",
+  user: "blah",
+  host: "need.a.new.one",
+  database: "blah",
+  password: "secret",
   port: 5432,
 });
 
